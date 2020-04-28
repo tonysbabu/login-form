@@ -63,7 +63,7 @@ it("validates form correctly", () => {
   expect(getByTestId("password-error").innerHTML).toBe("");
 });
 
-it("triggers api call on after validating form fields and clicking on Login", async () => {
+it("triggers api call  after validating form fields and clicking on Login", async () => {
   const { getByTestId, getByText } = render(<Login />);
 
   axiosMock.get.mockResolvedValueOnce({
