@@ -1,38 +1,131 @@
 .App {
-  text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:focus,
+input:focus {
+  outline: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  display: flex;
+  padding: 10px;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  height: 70px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo-container {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #cccccc;
+  padding-right: 20px;
+  margin-left: 30px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.login-container {
+  height: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/******** login form  styles ****************/
+
+.login-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 350px;
+  border-radius: 5px;
+}
+
+.login-form-container .form-field input {
+  padding: 8px;
+}
+
+.form-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-container .form-field {
+  margin: 10px 0;
+}
+
+.form-container .form-field:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+.form-container input {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: 1px solid #bfbfbf;
+}
+
+.form-container input.field-error {
+  border-color: crimson;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background: #d35567;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.form-error {
+  color: crimson;
+  font-size: 0.8;
+}
+
+/****** loading indicator styles ********/
+.loading-ring-container {
+  position: fixed;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.loading-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
 }
-
-@keyframes App-logo-spin {
-  from {
+.loading-ring:after {
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #d35567;
+  border-color: #d35567 transparent #d35567 transparent;
+  animation: loading-ring 1.2s linear infinite;
+}
+@keyframes loading-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
