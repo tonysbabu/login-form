@@ -2,6 +2,7 @@ import React from "react";
 import useLogin from "../../hooks/useLogin";
 import useForm from "../../hooks/useForm";
 import LoadingIndicator from "../LoadingIndicator";
+import logo from "../../assets/images/healthifyme.png";
 
 export default function Login() {
   const [login, loading] = useLogin();
@@ -29,10 +30,10 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {loading && <LoadingIndicator />}
+      <LoadingIndicator show={loading} />
       <div className="login-form-container">
         <div>
-          <h3> HealthifyMe </h3>
+          <img className="main-logo big" src={logo} alt="logo" />
         </div>
         <div>
           <h2> Sign in </h2>
@@ -43,22 +44,28 @@ export default function Login() {
         <div className="form-container">
           <div className="form-field">
             <input
+              data-testid="username"
               placeholder="Username"
               value={userName}
               className={userNameError && "field-error"}
               onChange={e => setUserName(e.target.value)}
             />
-            <div className="form-error">{userNameError}</div>
+            <div data-testid="username-error" className="form-error">
+              {userNameError}
+            </div>
           </div>
           <div className="form-field">
             <input
+              data-testid="password"
               type="Password"
               placeholder="Password"
               value={password}
               className={passwordError && "field-error"}
               onChange={e => setPassword(e.target.value)}
             />
-            <div className="form-error">{passwordError}</div>
+            <div data-testid="password-error" className="form-error">
+              {passwordError}
+            </div>
           </div>
           <div className="btn-container">
             <button onClick={handleSubmit}>Login</button>
